@@ -5,7 +5,7 @@ metadata:
   labels:
     app: hello-kubernetes
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: hello-kubernetes
@@ -16,6 +16,12 @@ spec:
     spec:
       containers:
       - name: hello-kubernetes
-        image: paulbouwer/hello-kubernetes:1.5
+        image: upkar/myapp:latest
         ports:
         - containerPort: 8080
+        env:
+          - name: app-config
+            valueFrom:
+              configMapKeyRef:
+                name: app-config
+                key: MESSAGE
