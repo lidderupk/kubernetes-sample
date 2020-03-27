@@ -20,7 +20,7 @@ spec:
         ports:
         - containerPort: 8080
         env:
-          - name: app-config
+          - name: MESSAGE
             valueFrom:
               configMapKeyRef:
                 name: app-config
